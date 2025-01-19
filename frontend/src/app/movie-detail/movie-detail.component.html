@@ -1,0 +1,18 @@
+<div class="movie-detail-container" *ngIf="movie">
+    <h2>{{ movie.MovieName }}</h2>
+    <img [src]="movie.poster" alt="{{ movie.MovieName }}" class="movie-poster">
+    <p><strong>Genre:</strong> {{ movie.GenreName }}</p>
+    <p><strong>Release Date:</strong> {{ movie.ReleaseDate }}</p>
+    <p><strong>Description:</strong> {{ movie.Synopsis }}</p>
+
+    <div class="details">
+        <div>
+            <p><strong>Director:</strong> {{ movie.DirectorName }}</p>
+            <p><strong>Producer:</strong> {{ movie.ProducerName }}</p>
+        </div>
+        <div>
+            <p><strong>Language:</strong> {{ movie.LanguageName }}</p>
+            <p><strong>Total Budget:</strong> ₹{{ movie.TotalBudget }}</p>
+        </div>
+    </div>
+</div>

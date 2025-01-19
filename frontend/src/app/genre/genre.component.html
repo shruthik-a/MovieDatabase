@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style=" color: #ffcc00;">Genre Management</h1>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="table-container">
+        <a class="btn btn-primary btn-sm" routerLink="/addGenre">Add Genre</a><br><br>
+        <table class="table table-bordered table-striped" id="genreTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>GenreID</th>
+                    <th>GenreName</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of datas">
+                    <td>{{ data.GenreID }}</td>
+                    <td>{{ data.GenreName }}</td>
+                    <td class="action-btns">
+                        <a class="btn btn-warning btn-sm" [routerLink]="['/editGenre',data.GenreID]">Edit</a>
+                        <a class="btn btn-danger btn-sm" (click)="delete(data.GenreID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

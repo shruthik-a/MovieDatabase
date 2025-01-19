@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style=" color: #ffcc00;">Movie Management</h1>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="table-container">
+        <a class="btn btn-primary btn-sm" routerLink="/addMovie">Add MovieData</a><br><br>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped" id="movieTable">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>MovieName</th>
+                        <th>MovieDuration</th>
+                        <th>ReleaseDate</th>
+                        <th>LastDateAtTheater</th>
+                        <th>TotalBudget</th>
+                        <th>Poster</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of datas">
+                        <td>{{ data.MovieName }}</td>
+                        <td>{{ data.MovieDuration }}</td>
+                        <td>{{ data.ReleaseDate }}</td>
+                        <td>{{ data.LastDateAtTheater }}</td>
+                        <td>{{ data.TotalBudget }}</td>
+                        <td>{{ data.poster }}</td>
+                        <td class="action-btns">
+                            <a class="btn btn-warning btn-sm" [routerLink]="['/editMovie',data.MovieID]">Edit</a>
+                            <a class="btn btn-danger btn-sm" (click)="delete(data.MovieID)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

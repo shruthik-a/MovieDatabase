@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1>Actor Form</h1>
+        <p class="text-muted">Fill in the details of a actor</p>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ successmsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ errormsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <form [formGroup]="actorForm">
+        <div class="form-group">
+            <label for="actorName">Actor Name</label>
+            <input type="text" class="form-control" id="actorName" formControlName="actorName" />
+        </div>
+        <div class="form-group">
+            <label for="actorMobileNumber">Mobile Number</label>
+            <input type="text" class="form-control" id="actorMobileNumber" formControlName="actorMobileNumber" />
+        </div>
+        <div class="form-group">
+            <label for="fanbaseName">Fan Base Name</label>
+            <input type="text" class="form-control" id="fanbaseName" formControlName="fanbaseName" />
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea class="form-control" id="address" formControlName="address"></textarea>
+        </div>
+        <div class="col mt-3">
+            <button class="btn btn-primary btn-sm" *ngIf="!getID" (click)="addForm()">Submit</button>
+            <button class="btn btn-dark btn-sm" *ngIf="getID" (click)="editForm()">Update</button>
+        </div>
+    </form>
+</div>

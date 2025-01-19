@@ -1,0 +1,12 @@
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by Movie name or genre" />
+</div>
+<div class="movies-container" *ngIf="searchQuery.length > 0">
+    <div class="movie-card" *ngFor="let movie of searchMovies()">
+        <a [routerLink]="['/movieDetail', movie.MovieID]">
+            <img [src]="movie.poster" alt="{{ movie.MovieName }}">
+            <h3>{{ movie.MovieName }}</h3>
+            <p>{{ movie.GenreName }}</p>
+        </a>
+    </div>
+</div>

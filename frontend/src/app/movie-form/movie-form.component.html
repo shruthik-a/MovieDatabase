@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1>Movie Form</h1>
+        <p class="text-muted">Fill in the details of a movie</p>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ successmsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ errormsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form [formGroup]="movieForm">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="movieName">Movie Name</label>
+                    <input type="text" class="form-control" id="movieName" formControlName="movieName">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="duration">Movie Duration</label>
+                    <input type="number" class="form-control" id="duration" formControlName="duration">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="synopsis">Synopsis</label>
+                    <textarea class="form-control" id="synopsis" formControlName="synopsis"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="release">Release Date</label>
+                    <input type="date" class="form-control" id="release" formControlName="release">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="theaterLastDay">Last Day at Theater</label>
+                    <input type="date" class="form-control" id="theaterLastDay" formControlName="theaterLastDay">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="budget">Total Budget</label>
+                    <input type="text" formControlName="budget" id="budget" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="languageID">Language ID</label>
+                    <input type="number" formControlName="languageID" id="languageID" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="genreID">Genre ID</label>
+                    <input type="number" formControlName="genreID" id="genreID" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="directorID">Director ID</label>
+                    <input type="number" formControlName="directorID" id="directorID" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="producerID">Producer ID</label>
+                    <input type="number" formControlName="producerID" id="producerID" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="poster">Poster URL</label>
+                    <input type="text" formControlName="poster" id="poster" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col mt-3">
+            <button class="btn btn-primary btn-sm" *ngIf="!getID" (click)="addForm()">Submit</button>
+            <button class="btn btn-dark btn-sm" *ngIf="getID" (click)="editForm()">Update</button>
+        </div>
+    </form>
+</div>

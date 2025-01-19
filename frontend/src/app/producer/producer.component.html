@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style=" color: #ffcc00;">Producer Management</h1>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="table-container">
+        <a class="btn btn-primary btn-sm" routerLink="/addProducer">Add ProducerData</a><br><br>
+        <table class="table table-bordered table-striped" id="producerTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ProducerID</th>
+                    <th>ProducerName</th>
+                    <th>CompanyName</th>
+                    <th>ContactNo</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of datas">
+                    <td>{{ data.ProducerID }}</td>
+                    <td>{{ data.ProducerName }}</td>
+                    <td>{{ data.CompanyName }}</td>
+                    <td>{{ data.ContactNo }}</td>
+                    <td>{{ data.Address }}</td>
+                    <td class="action-btns">
+                        <a class="btn btn-warning btn-sm" [routerLink]="['/editProducer',data.ProducerID]">Edit</a>
+                        <a class="btn btn-danger btn-sm" (click)="delete(data.ProducerID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

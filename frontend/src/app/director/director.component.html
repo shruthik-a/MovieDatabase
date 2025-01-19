@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style=" color: #ffcc00;">Director Management</h1>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="table-container">
+        <a class="btn btn-primary btn-sm" routerLink="/addDirector">Add DirectorData</a><br><br>
+        <table class="table table-bordered table-striped" id="directorTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>DirectorID</th>
+                    <th>DirectorName</th>
+                    <th>MobileNumber</th>
+                    <th>Address</th>
+                    <th>Details</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of datas">
+                    <td>{{ data.DirectorID }}</td>
+                    <td>{{ data.DirectorName }}</td>
+                    <td>{{ data.MobileNumber }}</td>
+                    <td>{{ data.Address }}</td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm" [routerLink]="['/directorDetails',data.DirectorID]">
+                            Know more
+                        </a>
+                    </td>
+                    <td class="action-btns">
+                        <a class="btn btn-warning btn-sm" [routerLink]="['/editDirector',data.DirectorID]">Edit</a>
+                        <a class="btn btn-danger btn-sm" (click)="delete(data.DirectorID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style=" color: #ffcc00;">Actor Management</h1>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="table-container">
+        <a class="btn btn-primary btn-sm" routerLink="/addActor">Add ActorData</a><br><br>
+        <table class="table table-bordered table-striped" id="actorTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ActorID</th>
+                    <th>ActorName</th>
+                    <th>MobileNumber</th>
+                    <th>FanBaseName</th>
+                    <th>Address</th>
+                    <th>Details</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of datas">
+                    <td>{{ data.ActorID }}</td>
+                    <td>{{ data.ActorName }}</td>
+                    <td>{{ data.MobileNumber }}</td>
+                    <td>{{ data.FanBaseName }}</td>
+                    <td>{{ data.Address }}</td>
+                    <td>
+                        <a class="btn btn-secondary btn-sm" [routerLink]="['/actorDetails',data.ActorID]">
+                            Know more
+                        </a>
+                    </td>
+                    <td class="action-btns">
+                        <a class="btn btn-warning btn-sm" [routerLink]="['/editActor', data.ActorID]">Edit</a>
+                        <a class="btn btn-sm btn-danger" (click)="delete(data.ActorID)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

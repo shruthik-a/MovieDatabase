@@ -1,0 +1,36 @@
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.table-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.btn-primary,
+.btn-warning,
+.btn-danger {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-warning:hover,
+.btn-danger:hover {
+    transform: scale(1.05);
+}
+
+.action-btns a {
+    margin-right: 10px;
+}

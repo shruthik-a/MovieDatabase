@@ -1,0 +1,42 @@
+.header {
+    text-align: center;
+    padding: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.slogan {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 20px auto;
+    color: #ffcc00;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.admin-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.admin-icon:hover {
+    background-color: #ffcc00;
+    transform: scale(1.1);
+}
+
+.admin-icon img {
+    width: 24px;
+    height: 24px;
+}

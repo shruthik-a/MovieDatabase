@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="headerDirector" *ngIf="director">
+        <img [src]="'assets/directorImages/' + director.Photo" alt="Director Photo" id="directorPhoto">
+        <h1>{{ director.DirectorName }}</h1>
+        <p>Specialty: {{ director.Genre }}</p>
+    </div>
+    <hr>
+    <div class="details" *ngIf="director">
+        <div class="detail-item">
+            <strong>Date of Birth:</strong> <span>{{ director.DOB }}</span>
+        </div>
+        <div class="detail-item">
+            <strong>Country:</strong> <span>{{ director.Country }}</span>
+        </div>
+        <div class="detail-item">
+            <strong>Years Active:</strong> <span>{{ director.Years_Active }}</span>
+        </div>
+        <div class="detail-item">
+            <strong>Total Movies Directed:</strong> <span>{{ director.TotalMovies }}</span>
+        </div>
+        <div class="detail-item">
+            <strong>Awards:</strong>
+            <ng-container *ngIf="director.awards?.length; else noAwards">
+                <ul>
+                    <li *ngFor="let award of director.awards">
+                        {{ award.name }} - {{ award.category }} for
+                        <span class="award-work">{{ award.work }}</span>
+                        ({{award.year}})
+                    </li>
+                </ul>
+            </ng-container>
+            <ng-template #noAwards>No awards yet</ng-template>
+        </div>
+    </div>
+    <hr>
+    <div class="notable-works" *ngIf="director?.famousWorks.length">
+        <strong>Notable Works:</strong>
+        <ul>
+            <li *ngFor="let work of director.famousWorks">{{ work }}</li>
+        </ul>
+    </div>
+    <hr>
+</div>

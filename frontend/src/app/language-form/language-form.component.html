@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="text-center mb-4">
+        <h1>Language Form</h1>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ successmsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ errormsg }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form [formGroup]="languageForm">
+        <div class="form-group">
+            <label for="languageName">Language Name</label>
+            <input type="text" class="form-control" id="languageName" formControlName="languageName">
+        </div>
+        <div class="col mt-3">
+            <button class="btn btn-primary btn-sm" *ngIf="!getID" (click)="addForm()">Submit</button>
+            <button class="btn btn-dark btn-sm" *ngIf="getID" (click)="editForm()">Update</button>
+        </div>
+    </form>
+</div>
